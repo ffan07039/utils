@@ -8,15 +8,15 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('-v', '--vault-yaml',
-                    help='vault yaml file')
+                    help='vault yaml file', default='vault.yml')
 parser.add_argument('-s', '--secrets-json',
-                    help='json k-v pair of secrets')
+                    help='json k-v pair of secrets', default='secrets.json')
 
 args = parser.parse_args()
 
 
 def store_secret(vault_yaml, key, value):
-    url = os.path.join(vault_yaml['host'], 'v1/secret', key)
+    url = os.path.join(vault_yaml['server_url'], 'v1/secret', vault_yaml['root_path'], key)
     req_headers = {
         "X-Vault-Token": vault_yaml['token'],
         "Content-Type": "application/json",
