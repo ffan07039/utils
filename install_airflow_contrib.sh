@@ -1,0 +1,1 @@
+pip install airflow_contrib_v1_0_15 --index-url http://pip01.mars.303net.pvt/simple --trusted-host pip01.mars.303net.pvt --trusted-host nexus.303net.net --extra-index-url https://nexus.303net.net/repository/pypi-public/simple
